@@ -1,17 +1,18 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 begin
-    require 'origami'
+  require 'origami'
 rescue LoadError
-    $: << File.join(__dir__, '../../lib')
-    require 'origami'
+  $: << File.join(__dir__, '../../lib')
+  require 'origami'
 end
 include Origami
 
 require 'stringio'
 
 OUTPUT_FILE = "#{File.basename(__FILE__, ".rb")}.pdf"
-EMBEDDED_NAME = "#{('a'..'z').to_a.sample(8).join}.pdf"
+EMBEDDED_NAME = "#{("a".."z").to_a.sample(8).join}.pdf"
 
 #
 # Creates the nested document.
@@ -19,7 +20,7 @@ EMBEDDED_NAME = "#{('a'..'z').to_a.sample(8).join}.pdf"
 #
 output_str = StringIO.new
 PDF.write(output_str) do |pdf|
-    pdf.onDocumentOpen Action::JavaScript "app.alert('Hello world!');" 
+  pdf.onDocumentOpen Action::JavaScript "app.alert('Hello world!');"
 end
 
 output_str.rewind

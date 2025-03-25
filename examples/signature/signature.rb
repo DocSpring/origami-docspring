@@ -1,12 +1,13 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
 
 require 'openssl'
 
 begin
-    require 'origami'
+  require 'origami'
 rescue LoadError
-    $: << File.join(__dir__, "../../lib")
-    require 'origami'
+  $: << File.join(__dir__, "../../lib")
+  require 'origami'
 end
 include Origami
 
@@ -34,12 +35,12 @@ cert.add_extension extension_factory.create_extension('keyUsage', 'digitalSignat
 cert.add_extension extension_factory.create_extension('subjectKeyIdentifier', 'hash')
 
 cert.issuer = name
-cert.sign key, OpenSSL::Digest::SHA256.new
+cert.sign key, OpenSSL::Digest.new('SHA256')
 
 # Create the PDF contents
 contents = ContentStream.new.setFilter(:FlateDecode)
 contents.write OUTPUT_FILE,
-    x: 350, y: 750, rendering: Text::Rendering::STROKE, size: 30
+  x: 350, y: 750, rendering: Text::Rendering::STROKE, size: 30
 
 pdf = PDF.new
 page = Page.new.setContents(contents)
@@ -52,12 +53,11 @@ page.add_annotation(sig_annot)
 
 # Sign the PDF with the specified keys
 pdf.sign(cert, key,
-    method: 'adbe.pkcs7.detached',
-    annotation: sig_annot,
-    location: "France",
-    contact: "gdelugre@localhost",
-    reason: "Signature sample"
-)
+  method: 'adbe.pkcs7.detached',
+  annotation: sig_annot,
+  location: "France",
+  contact: "gdelugre@localhost",
+  reason: "Signature sample")
 
 # Save the resulting file
 pdf.save(OUTPUT_FILE)

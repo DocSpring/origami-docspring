@@ -1,10 +1,11 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 begin
-    require 'origami'
+  require 'origami'
 rescue LoadError
-    $: << File.join(__dir__, "../../lib")
-    require 'origami'
+  $: << File.join(__dir__, "../../lib")
+  require 'origami'
 end
 include Origami
 
@@ -19,7 +20,7 @@ pdf = PDF.new.encrypt(cipher: 'aes', key_size: 256)
 
 contents = ContentStream.new
 contents.write "Encrypted document sample",
-    x: 100, y: 750, rendering: Text::Rendering::STROKE, size: 30
+  x: 100, y: 750, rendering: Text::Rendering::STROKE, size: 30
 
 pdf.append_page Page.new.setContents(contents)
 

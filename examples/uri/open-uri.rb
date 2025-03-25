@@ -1,14 +1,15 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
 
 begin
-    require 'origami'
+  require 'origami'
 rescue LoadError
-    $: << File.join(__dir__, "../../lib")
-    require 'origami'
+  $: << File.join(__dir__, "../../lib")
+  require 'origami'
 end
 include Origami
 
-OUTPUT_FILE = "#{File.basename(__FILE__, '.rb')}.pdf"
+OUTPUT_FILE = "#{File.basename(__FILE__, ".rb")}.pdf"
 URL = "http://google.fr"
 
 pdf = PDF.new
