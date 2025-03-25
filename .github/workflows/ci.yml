@@ -28,3 +28,22 @@ jobs:
       
     - name: Run tests
       run: bundle exec rake test
+
+  test-ppc64le:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v2
+      with:
+        platforms: ppc64le
+        
+    - name: Run in ppc64le Docker container
+      run: |
+        docker run --rm --platform linux/ppc64le -v $(pwd):/app -w /app ruby:3.2 /bin/bash -c "
+          apt-get update && apt-get install -y build-essential
+          gem install bundler
+          bundle install
+          bundle exec rake test
+        "
