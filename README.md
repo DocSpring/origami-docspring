@@ -1,8 +1,11 @@
 Origami
 =====
-[![Gem Version](https://badge.fury.io/rb/origami.svg)](https://rubygems.org/gems/origami)
-[![Downloads](https://img.shields.io/gem/dt/origami.svg)](https://rubygems.org/gems/origami)
-[![Build Status](https://secure.travis-ci.org/gdelugre/origami.svg?branch=master)](https://travis-ci.org/gdelugre/origami)
+
+> **Note**: This is a maintained fork of the original Origami library, released as the gem [origami-docspring](https://rubygems.org/gems/origami-docspring) on RubyGems. Despite the name change, you still `require 'origami'` and use the `Origami` module in your code.
+
+[![Gem Version](https://badge.fury.io/rb/origami-docspring.svg)](https://rubygems.org/gems/origami-docspring)
+[![Build Status](https://github.com/DocSpring/origami-docspring/actions/workflows/ci.yml/badge.svg)](https://github.com/DocSpring/origami-docspring/actions/workflows/ci.yml)
+[![Downloads](https://img.shields.io/gem/dt/origami-docspring.svg)](https://rubygems.org/gems/origami-docspring)
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
 Overview
@@ -27,7 +30,7 @@ Origami is able to parse PDF, FDF and PPKLite (Adobe certificate store) files.
 Requirements
 ------------
 
-As of version 2, the minimal version required to run Origami is Ruby 2.1.
+As of version 2.3.0, the minimal version required to run origami-docspring is Ruby 3.2.
 
 Some optional features require additional gems:
 
@@ -36,9 +39,9 @@ Some optional features require additional gems:
 Quick start
 -----------
 
-First install Origami using the latest gem available:
+First install the gem:
 
-    $ gem install origami
+    $ gem install origami-docspring
 
 Then import Origami with:
 
@@ -109,6 +112,7 @@ License
 Origami is distributed under the [LGPL](COPYING.LESSER) license.
 
 Copyright © 2019 Guillaume Delugré.
+Copyright © 2025 DocSpring, Inc.
 
 [the-ruby-racer]: https://rubygems.org/gems/therubyracer
 [pdfwalker-gem]: https://rubygems.org/gems/pdfwalker
