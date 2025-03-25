@@ -1,3 +1,21 @@
+2.3.0 (2025-03-25)
+-----
+* Updated to support Ruby 3.2, 3.3, and 3.4
+* Migrated from Travis CI to GitHub Actions
+* Added missing dependencies (rexml, matrix)
+* Fixed issues with frozen string literals
+* Added pure Ruby RC4 implementation for compatibility with OpenSSL security levels
+* Improved IO handling in tests
+* Fixed various RuboCop warnings and updated code style
+
+2.2.0 (2025-03-25)
+-----
+* Bumped version to 2.2.0
+* Fixed Ruby 2.7 keyword arguments warnings
+* Renamed gem to origami-docspring
+* Fixed bug with hybrid xrefs
+* Updated pdfmetadata to output JSON
+
 2.1.0
 -----
 * Moved pdfwalker to a separate gem
