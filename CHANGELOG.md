@@ -1,3 +1,13 @@
+2.3.2 (2025-03-25)
+-----
+* Added support for verifying multiple signatures in PDFs
+* Only validate ByteRange for the last signature in multi-signature files
+* Added new `signatures` method to get all signatures in a PDF
+
+2.3.1 (2025-03-25)
+-----
+* Loosened runtime dependencies, removed specific version constraints
+
 2.3.0 (2025-03-25)
 -----
 * Updated to support Ruby 3.2, 3.3, and 3.4
