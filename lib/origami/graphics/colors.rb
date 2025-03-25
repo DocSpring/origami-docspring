@@ -42,7 +42,7 @@ module Origami
         COLORDODGE = :ColorDodge
         COLORBURN = :ColorBurn
         HARDLIGHT = :HardLight
-        SOFTLIGHt = :SoftLight
+        SOFTLIGHT = :SoftLight
         DIFFERENCE = :Difference
         EXCLUSION = :Exclusion
       end

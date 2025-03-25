@@ -560,18 +560,20 @@ module Origami
         super
       end
 
-      def to_s(indent: 1, tab: "\t", eol: $/) # :nodoc:
-        # Must be deterministic.
-        indent, tab, eol = 1, "\t", $/
+      def to_s(indent: nil, tab: nil, eol: nil) # :nodoc:
+        # Must be deterministic, ignore parameters
+        indent_value = 1
+        tab_value = "\t"
+        eol_value = $/
 
-        content = TOKENS.first + eol
+        content = TOKENS.first + eol_value
 
         to_a.sort_by { |key, _| key }.reverse_each do |key, value|
-          content << tab * indent << key.to_s << " "
-          content << (value.is_a?(Dictionary) ? value.to_s(indent: indent + 1) : value.to_s) << eol
+          content << tab_value * indent_value << key.to_s << " "
+          content << (value.is_a?(Dictionary) ? value.to_s(indent: indent_value + 1) : value.to_s) << eol_value
         end
 
-        content << tab * (indent - 1) << TOKENS.last
+        content << tab_value * (indent_value - 1) << TOKENS.last
 
         output(content)
       end
@@ -598,7 +600,7 @@ module Origami
         return [] unless key?(:Cert)
 
         chain = self.Cert
-        unless chain.is_a?(String) || (chain.is_a?(Array) && chain.all? { |cert| cert.is_a?(String) })
+        if !chain.is_a?(String) && !(chain.is_a?(Array) && chain.all? { |cert| cert.is_a?(String) })
           return SignatureError, "Invalid embedded certificate chain"
         end
 
@@ -606,17 +608,19 @@ module Origami
       end
 
       def signature_offset # :nodoc:
-        indent, tab, eol = 1, "\t", $/
-        content = "#{no} #{generation} obj" + eol + TOKENS.first + eol
+        indent_value = 1
+        tab_value = "\t"
+        eol_value = $/
+        content = "#{no} #{generation} obj" + eol_value + TOKENS.first + eol_value
 
         to_a.sort_by { |key, _| key }.reverse_each do |key, value|
           if key == :Contents
-            content << tab * indent + key.to_s + " "
+            content << tab_value * indent_value + key.to_s + " "
 
             return content.size
           else
-            content << tab * indent + key.to_s << " "
-            content << (value.is_a?(Dictionary) ? value.to_s(indent: indent + 1) : value.to_s) << eol
+            content << tab_value * indent_value + key.to_s << " "
+            content << (value.is_a?(Dictionary) ? value.to_s(indent: indent_value + 1) : value.to_s) << eol_value
           end
         end
 

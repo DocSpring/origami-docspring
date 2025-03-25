@@ -7,7 +7,7 @@ rescue LoadError
   $: << File.join(__dir__, "../../lib")
   require 'origami'
 end
-include Origami # rubocop:disable Style/MixinUsage
+include Origami
 
 OUTPUT_FILE = "#{File.basename(__FILE__, ".rb")}.pdf"
 

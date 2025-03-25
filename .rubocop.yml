@@ -27,3 +27,49 @@ Style/TrailingCommaInHashLiteral:
 
 Style/Documentation:
   Enabled: false
+
+# Exclude examples from certain checks
+Style/MixinUsage:
+  Exclude:
+    - 'examples/**/*.rb'
+    - 'test/test_pdf.rb'
+
+# Disable warnings about mixed regexp capture types, as they're used in special cases
+Lint/MixedRegexpCaptureTypes:
+  Enabled: false
+
+# Disable warnings about mixed case ranges in character sets
+Lint/MixedCaseRange:
+  Enabled: false
+
+# Disable warnings about nested percent literals
+Lint/NestedPercentLiteral:
+  Enabled: false
+
+# Disable warnings about float comparisons
+Lint/FloatComparison:
+  Enabled: false
+
+# Disable Style/ItAssignment, as it is used in specific algorithm implementations
+Style/ItAssignment:
+  Enabled: false
+
+# Disable naming conventions for JavaScript API that follows existing conventions
+Naming/BlockParameterName:
+  Exclude:
+    - 'lib/origami/graphics/text.rb'
+    - 'lib/origami/javascript.rb'
+
+Naming/VariableName:
+  Exclude:
+    - 'lib/origami/graphics/text.rb'
+    - 'lib/origami/javascript.rb'
+
+# Disable warning about empty when branches
+Lint/EmptyWhen:
+  Enabled: false
+
+# Disable warning about assignment in conditions for type checking in parsers
+Lint/AssignmentInCondition:
+  Exclude:
+    - 'lib/origami/graphics/instruction.rb'
