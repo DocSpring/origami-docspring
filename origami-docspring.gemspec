@@ -1,11 +1,11 @@
 require_relative 'lib/origami/version'
 
 Gem::Specification.new do |s|
-    s.name          = "origami"
+    s.name          = "origami-docspring"
     s.version       = Origami::VERSION
     s.author        = "Guillaume Delugré"
-    s.email         = "origami@subvert.technology"
-    s.homepage      = "http://github.com/gdelugre/origami"
+    s.email         = "support@docspring.com"
+    s.homepage      = "http://github.com/DocSpring/origami-docspring"
     s.platform      = Gem::Platform::RUBY
 
     s.summary       = "Ruby framework to manipulate PDF documents"
@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
 
     s.require_path  = "lib"
     s.test_file     = "test/test_pdf.rb"
-    s.license       = "LGPL-3.0+"
+    s.license       = "LGPL-3.0-or-later"
 
     s.required_ruby_version = '>= 2.1'
     s.add_runtime_dependency "colorize", "~> 0.8"
