@@ -26,9 +26,9 @@ Gem::Specification.new do |s|
   s.license = "LGPL-3.0-or-later"
 
   s.required_ruby_version = '>= 3.2'
-  s.add_runtime_dependency "colorize", "~> 0.8"
-  s.add_runtime_dependency "rexml", "~> 3.2"
-  s.add_runtime_dependency "matrix", "~> 0.4"
+  s.add_runtime_dependency "colorize", ">= 0.8"
+  s.add_runtime_dependency "rexml", ">= 3.2"
+  s.add_runtime_dependency "matrix", ">= 0.4"
   s.add_development_dependency "minitest", "~> 5.20"
   s.add_development_dependency 'rake', '~> 13.1'
   s.add_development_dependency 'rdoc', '~> 6.6'
